@@ -8,7 +8,7 @@
 
 using namespace mimetic;
 
-const char Base64::sEncTable[] = 
+const signed char Base64::sEncTable[] = 
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     "abcdefghijklmnopqrstuvwxyz"
     "0123456789+/=";
