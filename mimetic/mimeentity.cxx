@@ -38,6 +38,7 @@ bool MimeEntity::hasField(const string& name) const
 ostream& MimeEntity::write(ostream& os, const char* eol) const
 {
     enum { max_line_len = 76 };
+    enum { max_headerline_len = 200 };
     if(eol != 0)
     {
         // TODO
@@ -46,7 +47,7 @@ ostream& MimeEntity::write(ostream& os, const char* eol) const
     // header field
     Header::const_iterator hbit = header().begin(), heit = header().end();
     for(; hbit != heit; ++hbit)
-        hbit->write(os, max_line_len) << crlf;
+        hbit->write(os, max_headerline_len) << crlf;
     const ContentType& ct = m_header.contentType();
     // body
     if(ct.isMultipart())
