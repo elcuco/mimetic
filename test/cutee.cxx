@@ -11,7 +11,10 @@
 #include <string>
 #include <list>
 #include <ctype.h>
+#ifdef HAVE_UNISTD_H
 #include <unistd.h>
+#endif /* HAVE_UNISTD_H */
+#include <getopt.h>
 #include "cutee.h"
 
 #define DEFAULT_RUNNER_EXT     __FILE__
