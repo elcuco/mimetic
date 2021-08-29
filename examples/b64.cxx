@@ -33,7 +33,13 @@ void die_if(bool b, const string& s)
     }
 }
 
-int main(int argc, char** argv)
+
+
+#if defined(BUILD_MONOLITHIC)
+#define main(cnt, arr)      smime_b64_main(cnt, arr)
+#endif
+
+int main(int argc, const char** argv)
 {
     std::ios_base::sync_with_stdio(false);
     bool encoding = 0;

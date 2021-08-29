@@ -211,7 +211,13 @@ void parse(Iterator bit, Iterator eit, string& fqn)
 }
 
 
-int main(int argc, char** argv)
+
+
+#if defined(BUILD_MONOLITHIC)
+#define main(cnt, arr)      smime_exbin_main(cnt, arr)
+#endif
+
+int main(int argc, const char** argv)
 {
     std::ios_base::sync_with_stdio(false);
 

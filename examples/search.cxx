@@ -156,7 +156,13 @@ void searchIndex(const MimeEntity& me, const MatchParamRq& mpr)
             cout << pMe->header().field("x-filename").value() << endl;
     }
 }
-int main(int argc, char** argv)
+
+
+#if defined(BUILD_MONOLITHIC)
+#define main(cnt, arr)      smime_search_main(cnt, arr)
+#endif
+
+int main(int argc, const char** argv)
 {
     std::ios_base::sync_with_stdio(false);
     MatchParamRq mpr;

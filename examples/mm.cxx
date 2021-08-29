@@ -46,7 +46,13 @@ void do_die_if(int b, const std::string& msg, const string& file, int line)
 }
 
 
-int main(int argc, char** argv)
+
+
+#if defined(BUILD_MONOLITHIC)
+#define main(cnt, arr)      smime_mm_main(cnt, arr)
+#endif
+
+int main(int argc, const char** argv)
 {
     std::ios_base::sync_with_stdio(false);
     command_line cl;

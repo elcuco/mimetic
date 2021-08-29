@@ -98,7 +98,13 @@ void indexItem(MimeEntity& head, const string& item)
         cerr << "ERR: unknown file type " << item << endl;
 }
 
-int main(int argc, char** argv)
+
+
+#if defined(BUILD_MONOLITHIC)
+#define main(cnt, arr)      smime_buildidx_main(cnt, arr)
+#endif
+
+int main(int argc, const char** argv)
 {
     std::ios_base::sync_with_stdio(false);
 

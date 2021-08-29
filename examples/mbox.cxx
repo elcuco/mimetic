@@ -134,7 +134,13 @@ void printMimeStructure(MimeEntity* pMe, int tabcount = 0)
         printMimeStructure(*mbit, 1 + tabcount);
 }
 
-int main(int argc, char** argv)
+
+
+#if defined(BUILD_MONOLITHIC)
+#define main(cnt, arr)      smime_mbox_main(cnt, arr)
+#endif
+
+int main(int argc, const char** argv)
 {
     std::ios_base::sync_with_stdio(false);
 

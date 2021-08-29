@@ -117,12 +117,18 @@ void usage()
 {
     cout << "structure [-v] [in_file]..." << endl;
     cout << "    -v Verbose mode" << endl;
-    cout << "    -q totaly quiet; exit code = num of entities" << endl;
+    cout << "    -q totally quiet; exit code = num of entities" << endl;
     cout << endl;
     exit(1);
 }
 
-int main(int argc, char** argv)
+
+
+#if defined(BUILD_MONOLITHIC)
+#define main(cnt, arr)      smime_structure_main(cnt, arr)
+#endif
+
+int main(int argc, const char** argv)
 {
     std::ios_base::sync_with_stdio(false);
     int fidx = 1;

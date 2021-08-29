@@ -442,10 +442,16 @@ private:
     string mFqn, mExt;
     StringList mIfList;
 };
+
 //
 // main
 //
-int main(int argc, char** argv)
+
+#if defined(BUILD_MONOLITHIC)
+#define main(cnt, arr)      smime_test_cutee_main(cnt, arr)
+#endif
+
+int main(int argc, const char** argv)
 {
     CmdLineOpts clo;
     clo.parse(argc,argv);
