@@ -15,7 +15,7 @@ const char ContentId::label[] = "Content-ID";
 
 ContentId::ContentId()
 {
-    std::string host = gethostname();
+    std::string host = mimetic::gethostname();
     if(!host.length())
         host = "unknown";
   m_cid = "c" + utils::int2str(time(0)) + "." + utils::int2str(getpid()) +

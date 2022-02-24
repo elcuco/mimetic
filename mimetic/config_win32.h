@@ -1,5 +1,6 @@
 /* mimetic/config_win32.h  */
 
+#ifndef MIMETEC_HAVE_CONFIG
 #undef HAVE_DIRENT_H
 #undef HAVE_GETPAGESIZE
 #undef HAVE_MMAP
@@ -25,3 +26,4 @@ typedef unsigned __int32 uint32_t;
 typedef __int64 int64_t;
 typedef unsigned __int64 uint64_t;
 
+#endif

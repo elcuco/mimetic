@@ -15,7 +15,7 @@ unsigned int MessageId::ms_sequence_number = 0;
 /// pass the thread_id argument if you're using mimetic with threads
 MessageId::MessageId(uint32_t thread_id)
 {
-    std::string host = gethostname();
+    std::string host = mimetic::gethostname();
     if(!host.length())
         host = "unknown";
 

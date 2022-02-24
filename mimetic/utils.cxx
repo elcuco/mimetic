@@ -8,11 +8,40 @@
 #include <sstream>
 #include <stdlib.h>
 
+#if !defined(WIN32)
+#include <netdb.h>
+#include <unistd.h>
+#endif
+
 namespace mimetic
 {
 
 using namespace std;
 
+
+std::string gethostname()
+{
+#if WIN32
+    return "";
+#else
+    // https://stackoverflow.com/a/505546
+    // TODO gethostname: how about ipv6 support?
+    // TODO gethostname: win32 support?
+    char hostname[1024];
+    hostname[1023] = '\0';
+    ::gethostname(hostname, 1023);
+    return std::string(hostname);
+#endif
+}
+
+int getpid()
+{
+#if WIN32
+    return ::_getpid();
+#else
+    return ::getpid();
+#endif
+}
 
 /**
  * same as std::endl but NOT flush the buffer
